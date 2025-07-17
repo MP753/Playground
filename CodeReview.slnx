@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/aspire/">
+    <Project Path="src/aspire/CodeReview.AppHost/CodeReview.AppHost.csproj" />
+    <Project Path="src/aspire/CodeReview.ServiceDefaults/CodeReview.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/src/CodeReview.UsersBFF/">
+    <Project Path="src/CodeReview.UsersBFF/CodeReview.UsersBFF.Api/CodeReview.UsersBFF.Api.csproj" />
+  </Folder>
+</Solution>
