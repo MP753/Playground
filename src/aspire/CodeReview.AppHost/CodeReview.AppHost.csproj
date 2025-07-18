@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CodeReview.UsersBFF\CodeReview.UsersBFF.Api\CodeReview.UsersBFF.Api.csproj" />
+    <ProjectReference Include="..\..\Gateways\CodeReview.UsersBFF\CodeReview.UsersBFF.Api\CodeReview.UsersBFF.Api.csproj" />
   </ItemGroup>
 
 </Project>
