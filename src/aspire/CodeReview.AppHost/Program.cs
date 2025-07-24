@@ -1,7 +1,6 @@
-var builder = DistributedApplication.CreateBuilder(args);
+IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
 builder.AddProject<Projects.CodeReview_UsersBFF_Api>("codereview-usersbff-api");
 
-builder.AddProject<Projects.CodeReviewUsersBFF_Api>("codereviewusersbff-api");
+await builder.Build().RunAsync().ConfigureAwait(false);
 
-builder.Build().Run();

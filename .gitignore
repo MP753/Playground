@@ -4,3 +4,6 @@
 # Ignore build output folders
 bin/
 obj/
+
+# User-specific files
+*.user

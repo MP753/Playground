@@ -1,10 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
 // Add services to the container.
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 app.MapDefaultEndpoints();
 
@@ -12,4 +12,5 @@ app.MapDefaultEndpoints();
 
 app.UseHttpsRedirection();
 
-app.Run();
+await app.RunAsync().ConfigureAwait(false);
+
