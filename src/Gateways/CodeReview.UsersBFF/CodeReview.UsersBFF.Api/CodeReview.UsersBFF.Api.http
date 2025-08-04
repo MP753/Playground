@@ -1,6 +1,13 @@
 @CodeReview.UsersBFF.Api_HostAddress = http://localhost:5290
 
-GET {{CodeReview.UsersBFF.Api_HostAddress}}/weatherforecast/
+### Register a new user
+POST {{CodeReview.UsersBFF.Api_HostAddress}}/register
+Content-Type: application/json
 Accept: application/json
 
-###
+{
+  "email": "milena@example.com",
+  "firstName": "Milena",
+  "lastName": "Popovic",
+  "password": "P@ssw0rd123!"
+}

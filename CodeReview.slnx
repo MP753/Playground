@@ -4,13 +4,20 @@
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
   </Folder>
-  <Folder Name="/src/" />
+  <Folder Name="/src/">
+    <Project Path="src/Shared/Shared.csproj" Id="37bb1c99-4ad0-413a-affc-0591093ba719" />
+  </Folder>
   <Folder Name="/src/aspire/">
     <Project Path="src/aspire/CodeReview.AppHost/CodeReview.AppHost.csproj" />
     <Project Path="src/aspire/CodeReview.ServiceDefaults/CodeReview.ServiceDefaults.csproj" />
   </Folder>
   <Folder Name="/src/Gateways/" />
   <Folder Name="/src/Gateways/CodeReview.UsersBFF/">
+    <Project Path="src/Gateways/CodeReview.UsersBFF.Services/CodeReview.UsersBFF.Services.csproj" Id="8fd7e31f-b5d6-4596-b2c0-3e72ddebbf61" />
     <Project Path="src/Gateways/CodeReview.UsersBFF/CodeReview.UsersBFF.Api/CodeReview.UsersBFF.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/Microservices/" />
+  <Folder Name="/src/Microservices/CodeReview.Users/">
+    <Project Path="src/Microservices/CodeReview.Users/CodeReview.Users.Api/CodeReview.Users.Api.csproj" />
   </Folder>
 </Solution>
