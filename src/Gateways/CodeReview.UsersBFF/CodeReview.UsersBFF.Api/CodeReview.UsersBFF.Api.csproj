@@ -4,6 +4,7 @@
     <ProjectReference Include="..\..\CodeReview.UsersBFF.Services\CodeReview.UsersBFF.Services.csproj" />
 	<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
 	<PackageReference Include="Carter" />
+	<PackageReference Include="Scrutor" />
   </ItemGroup>
 
 </Project>

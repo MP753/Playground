@@ -3,6 +3,7 @@
     <File Path=".editorconfig" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
+    <File Path="README.md" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/Shared/Shared.csproj" Id="37bb1c99-4ad0-413a-affc-0591093ba719" />

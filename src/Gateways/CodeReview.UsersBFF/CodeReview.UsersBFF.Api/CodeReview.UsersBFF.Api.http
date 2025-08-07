@@ -1,7 +1,7 @@
 @CodeReview.UsersBFF.Api_HostAddress = http://localhost:5290
 
 ### Register a new user
-POST {{CodeReview.UsersBFF.Api_HostAddress}}/register
+POST {{CodeReview.UsersBFF.Api_HostAddress}}/users/register
 Content-Type: application/json
 Accept: application/json
 
@@ -11,3 +11,16 @@ Accept: application/json
   "lastName": "Popovic",
   "password": "P@ssw0rd123!"
 }
+
+### Register a new user - error
+POST {{CodeReview.UsersBFF.Api_HostAddress}}/users/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "",
+  "firstName": null,
+  "lastName": "Popovic",
+  "password": "P@ssw0rd123!"
+}
+

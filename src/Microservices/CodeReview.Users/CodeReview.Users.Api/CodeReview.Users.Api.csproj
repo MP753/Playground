@@ -4,6 +4,7 @@
     <ProjectReference Include="..\..\..\aspire\CodeReview.ServiceDefaults\CodeReview.ServiceDefaults.csproj" />
     <ProjectReference Include="..\..\..\Shared\Shared.csproj" />
 	<PackageReference Include="Carter" />
+	<PackageReference Include="Scrutor" />
   </ItemGroup>
 
 </Project>

@@ -1,21 +1,27 @@
 using Carter;
 using CodeReview.UsersBFF.Api;
+using CodeReview.UsersBFF.Services.HttpClients;
 using CodeReview.UsersBFF.Services.RegisterUser;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Refit;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 builder.Services.AddCarter();
-builder.Services.AddHttpClient();
+builder.Services
+    .AddRefitClient<IUserApi>()
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://codereview-users-api"));
+
+builder.Services.Scan(scan => scan
+    .FromAssemblyOf<IRegisterUserService>()
+    .AddClasses(classes => classes.AssignableTo<IRegisterUserService>())
+    .AsImplementedInterfaces()
+    .WithTransientLifetime());
 
 
-builder.Services.AddHttpClient(HttpClientsNames.UsersApi);
-
-builder.Services.AddScoped<IRegisterUserService>(sp =>
-{
-    HttpClient client = sp.GetRequiredService<IHttpClientFactory>()
-                   .CreateClient(HttpClientsNames.UsersApi);
-    return new RegisterUserService(client);
-});
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserRequestValidator>();
 
 
 // Add services to the container.
