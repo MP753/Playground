@@ -1,5 +1,6 @@
 using Carter;
 using CodeReview.UsersBFF.Api;
+using CodeReview.UsersBFF.Api.Middleware;
 using CodeReview.UsersBFF.Services.HttpClients;
 using CodeReview.UsersBFF.Services.RegisterUser;
 using FluentValidation;
@@ -23,8 +24,8 @@ builder.Services.Scan(scan => scan
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserRequestValidator>();
 
-
-// Add services to the container.
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 WebApplication app = builder.Build();
 
@@ -41,6 +42,7 @@ if (app.Environment.IsDevelopment())
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
+app.UseExceptionHandler();
 
 await app.RunAsync().ConfigureAwait(false);
 

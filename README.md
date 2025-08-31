@@ -19,14 +19,20 @@ The purpose of this solution is to demonstrate hands-on knowledge of tooling, st
   - **BFF Layer** uses **Vertical Slice Architecture** 
   - **Microservice Layer** blends **Vertical Slice Architecture** and **Clean Architecture**
 - **Technologies & Patterns Used**:
-  - .NET Minimal APIs with Carter library
+  - .NET **Minimal APIs** with **Carter** library
   - Custom implementation of **CQRS** 
   - **Result Pattern** for safe and expressive outcome handling
-  - Scrutor library for automatic DI registration
-  - Refit library for http clients
-  - FluentValidation for request validation
+  - **Scrutor** library for automatic DI registration
+  - **Refit library** for http clients
+  - Validation: **FluentValidation** in bff
+	
 
 
+## 🔗 Connect with Me
+
+Feel free to reach out or explore more of my work:
+
+- [LinkedIn Profile](https://www.linkedin.com/in/milena-popovic-bg/)
 
 ---
 
