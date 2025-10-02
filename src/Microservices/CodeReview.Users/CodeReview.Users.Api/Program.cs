@@ -1,6 +1,8 @@
 using Carter;
 using CodeReview.Users.Api.RegisterUser;
 using CodeReview.Users.Api.Shared;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,9 @@ builder.Services.Scan(scan => scan
         .AsImplementedInterfaces()
         .WithScopedLifetime()
 );
+
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserCommandValidator>();
+builder.Services.Decorate(typeof(ICommandHandler<,>), typeof(ValidationCommandHandler<,>));
 
 builder.Services.AddCarter();
 

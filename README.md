@@ -24,7 +24,8 @@ The purpose of this solution is to demonstrate hands-on knowledge of tooling, st
   - **Result Pattern** for safe and expressive outcome handling
   - **Scrutor** library for automatic DI registration
   - **Refit library** for http clients
-  - Validation: **FluentValidation** in bff
+  - Validation: **FluentValidation**, in microservice using decorator pattern 
+  - Global exception handling middleware with Problem Details responses
 	
 
 

@@ -22,10 +22,10 @@ public class RegisterUserModule : ICarterModule
             {
                 return Results.ValidationProblem(validationResult.ToDictionary());
             }
+
             Result<Guid> result = await registerUserService.RegisterAsync(request, cancellationToken);
             if (result.IsSuccess)
             {
-                // Replace "/users/{id}" with the actual route if you have a GET endpoint for the user
                 return Results.Created($"/users/{result.Value}", result);
             }
             return Results.BadRequest(result);

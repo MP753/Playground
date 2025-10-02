@@ -46,7 +46,7 @@ public sealed class Result<TValue> : Result
     public Result(TValue? value, bool isSuccess, Error error)
         : base(isSuccess, error)
     {
-        _value = value;
+        _value = isSuccess ? value : throw new InvalidOperationException("Cannot access Value when result is failure.");
     }
 
     [NotNull]
