@@ -26,13 +26,13 @@ jobs:
         run: dotnet nuget locals all --clear
 
       - name: Install Aspire CLI
-        run: dotnet tool install -g Aspire.ProjectTemplates --version 9.5.2-preview.1.25522.3
+        run: dotnet tool install -g Aspire.ProjectTemplates --version 9.5.2
 
       - name: Restore dependencies
         run: dotnet restore
 
       - name: Aspire Publish and Generate Docker Compose
-        run: dotnet publish ${{ env.APPHOST_PROJECT_PATH }} -c Release -o ./publish-output
+        run: aspire publish ${{ env.APPHOST_PROJECT_PATH }} -c Release -o ./publish-output
         
       - name: Build Docker Images
         run: docker compose -f ./publish-output/docker-compose.yml build
