@@ -22,8 +22,11 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
+      - name: Clear NuGet Cache
+        run: dotnet nuget locals all --clear
+
       - name: Install Aspire CLI
-        run: dotnet tool install -g Aspire.ProjectTemplates
+        run: dotnet tool install -g Aspire.ProjectTemplates --version 9.5.2-preview.1.25522.3
 
       - name: Restore dependencies
         run: dotnet restore
