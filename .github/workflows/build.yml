@@ -1,4 +1,4 @@
-ame: Docker Build Verification 
+name: Docker Build Verification 
 
 on:
   workflow_dispatch:
@@ -21,6 +21,9 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install Aspire CLI
+        run: dotnet tool install -g Aspire.ProjectTemplates
 
       - name: Restore dependencies
         run: dotnet restore
