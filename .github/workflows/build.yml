@@ -7,7 +7,7 @@ on:
       - master
 
 env:
-  DOTNET_VERSION: "9.0.3"
+  DOTNET_VERSION: "9.x"
   APPHOST_PROJECT_PATH:  "src/aspire/CodeReview.AppHost/CodeReview.AppHost.csproj"
   
 jobs:
