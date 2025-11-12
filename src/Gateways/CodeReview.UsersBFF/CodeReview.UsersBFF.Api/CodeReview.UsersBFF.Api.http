@@ -24,3 +24,23 @@ Accept: application/json
   "password": "P@ssw0rd123!"
 }
 
+
+### docker container testing 
+@port = 8080
+@host = localhost
+
+# POST zahtev za registraciju korisnika
+POST http://{{host}}:{{port}}/users/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "milena@example.com",
+    "firstName": "Milena",
+    "lastName": "Popovic",
+    "password": "P@ssw0rd123!"
+}
+
+
+
+

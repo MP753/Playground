@@ -7,3 +7,6 @@ obj/
 
 # User-specific files
 *.user
+
+#aspire publish
+artifacts
