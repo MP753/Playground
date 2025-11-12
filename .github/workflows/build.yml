@@ -1,4 +1,4 @@
-name: Build
+ame: Docker Build Verification 
 
 on:
   workflow_dispatch:
@@ -7,10 +7,11 @@ on:
       - master
 
 env:
-  DOTNET_VERSION: "9.x"
-
+  DOTNET_VERSION: "9.0.3"
+  APPHOST_PROJECT_PATH:  "src/aspire/CodeReview.AppHost/CodeReview.AppHost.csproj"
+  
 jobs:
-  build:
+  build_verification:
     runs-on: ubuntu-latest
     
     steps:
@@ -21,11 +22,13 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Restore
-        run: dotnet restore CodeReview.slnx
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: Build
-        run: dotnet build CodeReview.slnx --configuration Release --no-restore
-
-      - name: Test
-        run: dotnet test CodeReview.slnx --configuration Release --no-restore --no-build
+      - name: Aspire Publish and Generate Docker Compose
+        run: dotnet publish ${{ env.APPHOST_PROJECT_PATH }} -c Release -o ./publish-output
+        
+      - name: Build Docker Images
+        run: docker compose -f ./publish-output/docker-compose.yml build
+        
+    

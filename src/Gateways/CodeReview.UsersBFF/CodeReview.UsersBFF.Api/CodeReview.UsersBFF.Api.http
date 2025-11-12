@@ -29,7 +29,7 @@ Accept: application/json
 @port = 8080
 @host = localhost
 
-# POST zahtev za registraciju korisnika
+# POST Register a new user
 POST http://{{host}}:{{port}}/users/register
 Content-Type: application/json
 Accept: application/json
