@@ -23,7 +23,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Install Aspire CLI
-        run: dotnet new install Aspire.ProjectTemplates::9.5.2
+        run: dotnet tool install -g aspire.cli --version 9.5.2
 
       - name: Restore dependencies
         run: dotnet restore --nologo
