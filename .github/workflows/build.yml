@@ -30,6 +30,9 @@ jobs:
 
       - name: Aspire Publish and Generate Docker Compose
         run: aspire publish ${{ env.APPHOST_PROJECT_PATH }} -c Release -o ./publish-output --no build
+        env:
+          Keycloak__Admin: "admin" 
+          Keycloak__Password: "admin"
         
       - name: Build Docker Images 
         working-directory: ./publish-output 
