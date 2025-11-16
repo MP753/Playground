@@ -1,10 +1,12 @@
 using Carter;
 using CodeReview.UsersBFF.Api;
+using CodeReview.UsersBFF.Api.Authentication;
 using CodeReview.UsersBFF.Api.Middleware;
 using CodeReview.UsersBFF.Services.HttpClients;
 using CodeReview.UsersBFF.Services.RegisterUser;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Refit;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -27,8 +29,20 @@ builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserRequestValidato
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication()
+          .AddKeycloakJwtBearer("keycloak",realm: "code-review", options =>
+          {
+              options.RequireHttpsMetadata = false;
+              options.Audience = "account";
+          });
+builder.Services.Configure<AuthenticationOptions>(builder.Configuration.GetSection("Authentication"));
+builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
+
 WebApplication app = builder.Build();
 
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapCarter();
 
 

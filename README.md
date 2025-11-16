@@ -11,6 +11,7 @@ The purpose of this solution is to demonstrate hands-on knowledge of tooling, st
 - **Continuous Integration** via GitHub Actions
 - **HTTP File Testing**: declarative `.http` files for endpoint testing inside IDE
 - The solution is fully containerized (**Dockerized**), with the configuration managed by .NET Aspire Publish
+- Keycloak authentication
 
 ## 🧩 Solution Structure
 
@@ -27,6 +28,7 @@ The purpose of this solution is to demonstrate hands-on knowledge of tooling, st
   - **Refit library** for http clients
   - Validation: **FluentValidation**, in microservice using decorator pattern 
   - Global exception handling middleware with **Problem Details** responses
+  - **Options Pattern** for binding configuration settings
 	
 
 

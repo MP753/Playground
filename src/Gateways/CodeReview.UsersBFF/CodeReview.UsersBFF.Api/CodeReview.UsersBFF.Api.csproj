@@ -5,6 +5,7 @@
 	<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
 	<PackageReference Include="Carter" />
 	<PackageReference Include="Scrutor" />
+	<PackageReference Include=" Aspire.Keycloak.Authentication" />
   </ItemGroup>
 
 </Project>
